@@ -46,4 +46,9 @@
         WHERE bookid = #{bookId}
     </update>
 
+    <delete id="delBook">
+        DELETE FROM book
+         WHERE bookid = #{bookId}
+    </delete>
+
 </mapper>

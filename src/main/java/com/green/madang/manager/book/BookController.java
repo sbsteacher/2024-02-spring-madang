@@ -1,10 +1,7 @@
 package com.green.madang.manager.book;
 
 import com.green.madang.common.model.MyResponse;
-import com.green.madang.manager.book.model.BookGetReq;
-import com.green.madang.manager.book.model.BookGetRes;
-import com.green.madang.manager.book.model.BookPostReq;
-import com.green.madang.manager.book.model.BookPutReq;
+import com.green.madang.manager.book.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -40,5 +37,12 @@ public class BookController {
     public MyResponse<Integer> putBook(@RequestBody BookPutReq p) {
         return new MyResponse<>(p.getBookId() + "번 도서 수정"
                 , service.putBook(p));
+    }
+
+    @DeleteMapping
+    @Operation(summary = "도서 삭제")
+    public MyResponse<Integer> deleteBook(@ParameterObject @ModelAttribute BookDeleteReq p) {
+        return new MyResponse<>(p.getBookId() + "번 도서 삭제"
+                , service.deleteBook(p));
     }
 }

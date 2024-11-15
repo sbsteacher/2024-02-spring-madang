@@ -3,6 +3,7 @@ package com.green.madang.manager.book;
 import com.green.madang.manager.book.model.BookGetReq;
 import com.green.madang.manager.book.model.BookGetRes;
 import com.green.madang.manager.book.model.BookPostReq;
+import com.green.madang.manager.book.model.BookPutReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,9 @@ public class BookService {
 
         //p.setSIdx((p.getPage() - 1) * p.getSize());
         return mapper.selBookList(p);
+    }
+
+    public int putBook(BookPutReq p) {
+        return mapper.updBook(p);
     }
 }

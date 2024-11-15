@@ -30,5 +30,20 @@
         LIMIT ${(page - 1) * size}, #{size}
     -->
 
+    <update id="updBook">
+        UPDATE book
+        <set>
+            <if test=" bookName != null and bookName != '' ">
+                bookname = #{bookName}
+            </if>
+            <if test=" publisher != null and publisher != '' ">
+                , publisher = #{publisher}
+            </if>
+            <if test=" price != null and price >= 0 ">
+                , price = #{price}
+            </if>
+        </set>
+        WHERE bookid = #{bookId}
+    </update>
 
 </mapper>

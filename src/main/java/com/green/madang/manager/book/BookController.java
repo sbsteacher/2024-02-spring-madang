@@ -4,6 +4,7 @@ import com.green.madang.common.model.MyResponse;
 import com.green.madang.manager.book.model.BookGetReq;
 import com.green.madang.manager.book.model.BookGetRes;
 import com.green.madang.manager.book.model.BookPostReq;
+import com.green.madang.manager.book.model.BookPutReq;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -32,5 +33,12 @@ public class BookController {
     public MyResponse<List<BookGetRes>> getBookList(@ParameterObject @ModelAttribute BookGetReq p) {
         List<BookGetRes> list = service.getBookList(p);
         return new MyResponse<>(p.getPage() + "페이지 데이터", list);
+    }
+
+    @PutMapping
+    @Operation(summary = "도서 수정")
+    public MyResponse<Integer> putBook(@RequestBody BookPutReq p) {
+        return new MyResponse<>(p.getBookId() + "번 도서 수정"
+                , service.putBook(p));
     }
 }

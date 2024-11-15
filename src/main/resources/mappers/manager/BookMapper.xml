@@ -18,10 +18,17 @@
              , publisher
              , price
           FROM book
+         <if test=" searchText != null and searchText != '' ">
+             WHERE bookname LIKE '%${searchText}%'
+         </if>
          ORDER BY bookname, bookid
          LIMIT #{startIdx}, #{size}
     </select>
-
+    <!--
+        LIMIT #{startIdx}, #{size}
+        or
+        LIMIT ${(page - 1) * size}, #{size}
+    -->
 
 
 </mapper>

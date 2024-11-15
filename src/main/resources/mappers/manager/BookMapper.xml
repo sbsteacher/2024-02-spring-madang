@@ -12,5 +12,16 @@
              , price = #{price}
     </insert>
 
+    <select id="selBookList">
+        SELECT bookid AS bookId
+             , bookname AS bookName
+             , publisher
+             , price
+          FROM book
+         ORDER BY bookname, bookid
+         LIMIT #{startIdx}, #{size}
+    </select>
+
+
 
 </mapper>

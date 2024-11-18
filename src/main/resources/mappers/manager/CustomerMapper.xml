@@ -10,4 +10,20 @@
              , address = #{address}
              , phone = #{phone}
     </insert>
+
+    <select id="selCustomerList">
+        SELECT custid, name, address, phone
+          FROM customer
+         <choose>
+             <when test="searchType != null and searchType != ''
+                    and searchText != null and searchText != ''">
+                 WHERE ${searchType} LIKE '%${searchText}%'
+                 ORDER BY ${searchType}
+             </when>
+             <otherwise>
+                 ORDER BY custid
+             </otherwise>
+         </choose>
+         LIMIT #{startIdx}, #{size}
+    </select>
 </mapper>

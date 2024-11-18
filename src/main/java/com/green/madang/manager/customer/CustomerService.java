@@ -3,6 +3,7 @@ package com.green.madang.manager.customer;
 import com.green.madang.manager.customer.model.CustomerGetReq;
 import com.green.madang.manager.customer.model.CustomerGetRes;
 import com.green.madang.manager.customer.model.CustomerPostReq;
+import com.green.madang.manager.customer.model.CustomerPutReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,14 @@ public class CustomerService {
         int startIdx = (p.getPage() - 1) * p.getSize();
         p.setStartIdx(startIdx);
         return mapper.selCustomerList(p);
+    }
+
+    public int putCustomer(CustomerPutReq p) {
+        return mapper.updCustomer(p);
+    }
+
+    public int deleteCustomer(int custId) {
+        return mapper.delCustomer(custId);
     }
 
 }

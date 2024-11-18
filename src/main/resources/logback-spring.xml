@@ -5,7 +5,8 @@
     <!-- ./ 현재 위치(프로그램이 실행되는 위치) , LOG_PATH 변수 만듬 -->
     <property name="LOG_PATH" value="./logs" />
     <property name="LOG_FILE_NAME" value="logInfo" />
-    <property name="LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss} %color(%-5level){} %thread] %color([%logger]){cyan} %msg%n" />
+    <property name="LOG_PATTERN_FILE" value="[%d{yyyy-MM-dd HH:mm:ss} %-5level%thread] [%logger] %msg%n" />
+    <property name="LOG_PATTERN_CONSOLE" value="[%d{yyyy-MM-dd HH:mm:ss} %color(%-5level){}%thread] %color([%logger]){cyan} %msg%n" />
 
     <!-- 로그 파일 세팅 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -17,7 +18,7 @@
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <charset>UTF-8</charset>
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${LOG_PATTERN_FILE}</pattern>
         </encoder>
     </appender>
 
@@ -25,7 +26,7 @@
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <charset>UTF-8</charset>
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${LOG_PATTERN_CONSOLE}</pattern>
         </encoder>
     </appender>
 

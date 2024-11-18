@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.ToString;
 import org.springframework.web.bind.annotation.BindParam;
 
-
+//immutable 객체
 @Getter
 @ToString
 public class CustomerGetReq {
@@ -17,6 +17,7 @@ public class CustomerGetReq {
         this.size = size;
         this.searchType = searchType;
         this.searchText = searchText;
+        this.startIdx = (page - 1) * size;
     }
 
     @Schema(description = "page값", example = "1", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -32,7 +33,4 @@ public class CustomerGetReq {
     @Schema(name="search_text", description = "검색내용", example = "ani")
     private String searchText;
 
-    public void setStartIdx(int startIdx) {
-        this.startIdx = startIdx;
-    }
 }

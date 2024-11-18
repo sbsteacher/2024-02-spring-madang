@@ -17,7 +17,7 @@ import java.util.List;
 public class BookController {
     private final BookService service;
 
-    @PostMapping("dddd")
+    @PostMapping
     @Operation(summary = "도서 입고", description = "도서 입고 처리 API")
     public MyResponse<Integer> postBook(@RequestBody BookPostReq p) {
         int result = service.postBook(p);
@@ -25,7 +25,7 @@ public class BookController {
         return response;
     }
 
-    @GetMapping("cccc")
+    @GetMapping
     @Operation(summary = "도서 리스트", description = "도서 정보 리스트 보기 API")
     public MyResponse<List<BookGetRes>> getBookList(@ParameterObject @ModelAttribute BookGetReq p) {
         List<BookGetRes> list = service.getBookList(p);

@@ -6,7 +6,7 @@ USE `madang_spring`;
 
 -- 테이블 madang_spring.book 구조 내보내기
 CREATE TABLE IF NOT EXISTS `book` (
-                                      `bookid` int(11) NOT NULL AUTO_INCREMENT,
+    `bookid` int(11) NOT NULL AUTO_INCREMENT,
     `bookname` varchar(40) NOT NULL,
     `publisher` varchar(40) NOT NULL,
     `price` int(11) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `book` (
 
 -- 테이블 madang_spring.customer 구조 내보내기
 CREATE TABLE IF NOT EXISTS `customer` (
-                                          `custid` int(11) NOT NULL AUTO_INCREMENT,
+    `custid` int(11) NOT NULL AUTO_INCREMENT,
     `name` varchar(40) NOT NULL,
     `address` varchar(50) NOT NULL,
     `phone` varchar(20) DEFAULT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
 
 -- 테이블 madang_spring.orders 구조 내보내기
 CREATE TABLE IF NOT EXISTS `orders` (
-                                        `orderid` int(11) NOT NULL AUTO_INCREMENT,
+    `orderid` int(11) NOT NULL AUTO_INCREMENT,
     `custid` int(11) NOT NULL,
     `bookid` int(11) NOT NULL,
     `saleprice` int(11) NOT NULL,

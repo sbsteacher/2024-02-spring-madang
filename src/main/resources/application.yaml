@@ -2,11 +2,9 @@
 mybatis:
   mapper-locations: mappers/**/*.xml
 
-
 spring:
   application:
     name: madang
-
   datasource:
     url: jdbc:mariadb://localhost/madang_spring
     username: root
@@ -15,5 +13,6 @@ spring:
 springdoc:
   swagger-ui:
     default-model-expand-depth: 10
-    default-models-expand-depth: -1
+    display-request-duration: true
+    operations-sorter: method
     path: /swagger

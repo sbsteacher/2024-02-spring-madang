@@ -45,12 +45,7 @@ public class CustomerController {
                                                             , @RequestParam int size
                                                             , @RequestParam(name="search_type", required = false) String searchType
                                                             , @RequestParam(name="search_text", required = false) String searchText) {
-        CustomerGetReq p = new CustomerGetReq();
-        p.setPage(page);
-        p.setSize(size);
-        p.setSearchType(searchType);
-        p.setSearchText(searchText);
-
+        CustomerGetReq p = new CustomerGetReq(page, size, searchType, searchText);
         log.info("get-req: {}", p);
         List<CustomerGetRes> res = service.getCustomerList(p);
         return new MyResponse<>(p.getPage() + "페이지 데이터", res);

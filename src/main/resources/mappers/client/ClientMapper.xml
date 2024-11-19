@@ -11,5 +11,15 @@
          WHERE bookid = #{bookId}
     </insert>
 
+    <select id="selOrderList">
+        SELECT A.orderId, A.salePrice, A.orderDate
+             , C.bookId, C.bookName
+          FROM orders A
+         INNER JOIN book C
+            ON A.bookid = C.bookid
+         WHERE A.custid = #{custId}
+         ORDER BY A.orderid DESC
+    </select>
+
 
 </mapper>

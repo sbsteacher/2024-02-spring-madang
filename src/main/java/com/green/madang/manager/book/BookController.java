@@ -21,9 +21,15 @@ public class BookController {
     private final BookService service;
 
     @PostMapping
-    @Operation(summary = "도서 입고", description = "<div>도서 입고 처리 API</div>" +
+    /*@Operation(summary = "도서 입고", description = "<div>도서 입고 처리 API</div>" +
             "<div>하하하하</div>" +
-            "<div>크크크크크</div>")
+            "<div>크크크크크</div>")*/
+    // """ 텍스트 블록 """ 여러 줄을 작성할 때 위처럼 하지 않아도 된다.
+    @Operation(summary = "도서 입고", description = """
+            <div>도서 입고 처리 API</div>
+            <div>도서 입고 처리 API (2)</div>
+            <div>도서 입고 처리 API (3)</div>
+    """)
     public MyResponse<Integer> postBook(@RequestBody BookPostReq p) {
         log.info("BookPostReq : {}", p);
         int result = service.postBook(p);

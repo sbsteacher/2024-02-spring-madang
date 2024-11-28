@@ -10,6 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Schema(title = "도서 등록", description = "도서 등록시 사용되는 데이터")
 public class BookPostReq {
     @Schema(title = "도서 이름", description = "설명할거 있으면 적으며 된다.", example = "학교 종이 땡땡땡!", requiredMode = Schema.RequiredMode.REQUIRED)
     private String bookName;

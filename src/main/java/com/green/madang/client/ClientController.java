@@ -26,7 +26,7 @@ public class ClientController {
     @Operation(summary = "책 주문")
     public MyResponse<Integer> postOrder(@RequestBody OrderPostReq p) {
         int result = service.postOrder(p);
-        return new MyResponse<>("주문이 등록되었습니다.", result);
+        return new MyResponse<>("주문번호: " + p.getOrderId(), result);
     }
 
     //본인이 주문한 책 리스트
